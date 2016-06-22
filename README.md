@@ -34,3 +34,10 @@ server:
         access-control: 0.0.0.0/8 allow
         include: /var/unbound/etc/local-blocking-data.conf
 ```
+
+# Example in Bitrig
+
+To start adfuccant on boot add something along these lines to /etc/rc.local:
+```
+adfuccant --hosts /root/hosts.txt &
+```
