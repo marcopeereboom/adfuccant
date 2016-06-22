@@ -32,5 +32,5 @@ Add the following to your unbound.conf file:
 ```
 server:
         access-control: 0.0.0.0/8 allow
-        include: /var/unbound/local-blocking-data.conf
+        include: /var/unbound/etc/local-blocking-data.conf
 ```
