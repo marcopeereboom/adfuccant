@@ -59,8 +59,14 @@ func (c *ctx) writeHosts() error {
 	defer f.Close()
 
 	for k := range c.hosts {
-		fmt.Fprintf(f, "local-zone: \"%v\" redirect\n", k)
-		fmt.Fprintf(f, "local-data: \"%v A 0.0.0.0\"\n", k)
+		_, err = fmt.Fprintf(f, "local-zone: \"%v\" redirect\n", k)
+		if err != nil {
+			return err
+		}
+		_, err = fmt.Fprintf(f, "local-data: \"%v A 0.0.0.0\"\n", k)
+		if err != nil {
+			return err
+		}
 	}
 
 	return nil
@@ -207,11 +213,20 @@ func _main() error {
 		return err
 	}
 
-	// always run
+	// always run first
 	c.updateBackground(&err)
+	if err != nil {
+		return err
+	}
 
 	if c.s.Update {
 		return err // yep this is right
+	}
+
+	// restart if we aren't just updating file
+	err = c.restart()
+	if err != nil {
+		return err
 	}
 
 	c.sod = false

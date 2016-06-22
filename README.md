@@ -19,7 +19,7 @@ your edge DNS server.
   -restart string
         command to restart unbound (default "/etc/rc.d/unbound reload")
   -target string
-        target file (default "/var/unbound/local-blocking-data.conf")
+        target file (default "/var/unbound/etc/local-blocking-data.conf")
   -update
         update target file only and exit
   -verbose

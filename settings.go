@@ -18,7 +18,7 @@ type Settings struct {
 
 const (
 	defaultHosts   = "hosts.txt"
-	defaultTarget  = "/var/unbound/local-blocking-data.conf"
+	defaultTarget  = "/var/unbound/etc/local-blocking-data.conf"
 	defaultLog     = "~/.adfuccant/adfuccant.log"
 	defaultRestart = "/etc/rc.d/unbound reload"
 )
