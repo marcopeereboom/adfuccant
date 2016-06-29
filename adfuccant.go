@@ -45,7 +45,7 @@ func (c *ctx) logNoTime(format string, args ...interface{}) error {
 }
 
 func (c *ctx) log(format string, args ...interface{}) error {
-	t := time.Now().Format("15:04:05.000 ")
+	t := time.Now().Format("Mon Jan 02 2006 15:04:05.000 ")
 	return c.logNoTime(t+format, args...)
 }
 
